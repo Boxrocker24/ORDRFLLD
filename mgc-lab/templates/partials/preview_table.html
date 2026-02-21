@@ -1,0 +1,20 @@
+<div class="space-y-4">
+  <div class="rounded-2xl border border-slate-200 p-4 bg-slate-50">
+    <h3 class="text-lg font-semibold">{{ upload['original_filename'] }}</h3>
+    <dl class="mt-2 grid grid-cols-2 md:grid-cols-4 gap-3 text-sm">
+      <div><dt class="text-slate-500">Upload ID</dt><dd class="font-mono text-xs break-all">{{ upload['id'] }}</dd></div>
+      <div><dt class="text-slate-500">Uploaded</dt><dd>{{ upload['uploaded_at'] }}</dd></div>
+      <div><dt class="text-slate-500">Rows / Cols</dt><dd>{{ upload['row_count'] }} / {{ upload['col_count'] }}</dd></div>
+      <div><dt class="text-slate-500">File size</dt><dd>{{ upload['file_size_bytes'] }} bytes</dd></div>
+    </dl>
+  </div>
+
+  <div class="rounded-2xl border border-slate-200 overflow-hidden bg-white">
+    <div class="px-4 py-3 border-b border-slate-200 bg-slate-50">
+      <h4 class="font-medium">Preview (first 50 rows)</h4>
+    </div>
+    <div class="overflow-auto max-h-[520px] p-2 preview-table-wrapper">
+      {{ preview_html | safe }}
+    </div>
+  </div>
+</div>
