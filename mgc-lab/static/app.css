@@ -1,0 +1,23 @@
+.preview-table-wrapper table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.preview-table-wrapper thead th {
+  position: sticky;
+  top: 0;
+  background: #f8fafc;
+  z-index: 1;
+}
+
+.preview-table-wrapper th,
+.preview-table-wrapper td {
+  border: 1px solid #e2e8f0;
+  padding: 0.45rem 0.55rem;
+  white-space: nowrap;
+}
+
+.preview-table-wrapper tbody tr:nth-child(even) {
+  background: #f8fafc;
+}

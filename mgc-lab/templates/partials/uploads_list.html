@@ -1,0 +1,26 @@
+<div class="rounded-2xl border border-slate-200 overflow-hidden">
+  <div class="px-4 py-3 bg-slate-50 border-b border-slate-200">
+    <h2 class="font-medium">Previous uploads</h2>
+  </div>
+  <ul class="divide-y divide-slate-200 max-h-[560px] overflow-y-auto">
+    {% if uploads %}
+      {% for upload in uploads %}
+        <li>
+          <button
+            type="button"
+            class="w-full text-left px-4 py-3 hover:bg-slate-50 transition"
+            hx-get="{{ url_for('main.get_upload', upload_id=upload['id']) }}"
+            hx-target="#preview"
+            hx-swap="innerHTML"
+          >
+            <p class="font-medium text-sm truncate">{{ upload['original_filename'] }}</p>
+            <p class="text-xs text-slate-500">{{ upload['uploaded_at'] }}</p>
+            <p class="text-xs text-slate-400">{{ upload['row_count'] or 0 }} rows • {{ upload['col_count'] or 0 }} cols</p>
+          </button>
+        </li>
+      {% endfor %}
+    {% else %}
+      <li class="px-4 py-5 text-sm text-slate-500">No uploads yet.</li>
+    {% endif %}
+  </ul>
+</div>
